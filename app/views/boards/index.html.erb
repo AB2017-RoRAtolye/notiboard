@@ -1,3 +1,7 @@
 <h1>Boards#index</h1>
 
-<div class="btn btn-primary">Deneme</div>
+<ul>
+  <% @boards.each do |board| %>
+    <li><%=board.title%></li>
+  <% end %>
+</ul>
