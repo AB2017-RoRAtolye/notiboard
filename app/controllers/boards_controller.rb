@@ -1,7 +1,5 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update]
-  before_action :second_action
-  after_action :third_action, except: [:index]
 
   def show
   end
@@ -15,7 +13,6 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    logger.info("#=======edit========")
   end
 
   def update
@@ -43,15 +40,6 @@ class BoardsController < ApplicationController
 
   def set_board
     @board = Board.find(params[:id])
-    logger.info("#=======set_board========")
-  end
-
-  def second_action
-    logger.info("#=======second_action========")
-  end
-
-  def third_action
-    logger.info("#=======third_action========")
   end
 
 end
