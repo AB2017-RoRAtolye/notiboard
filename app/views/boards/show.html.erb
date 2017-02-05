@@ -1,4 +1,5 @@
 <h1><%= @board.title %></h1>
 
+<%= image_tag @board.logo.url(:thumb_fill) if @board.logo.present? %>
 
 <%= link_to "Duzenle", edit_board_path(@board.id) %>
