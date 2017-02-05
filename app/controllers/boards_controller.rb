@@ -16,7 +16,6 @@ class BoardsController < ApplicationController
   end
 
   def update
-
     if @board.update(board_params)
       redirect_to board_path(@board), notice: "Başarıyla güncellendi"
     else
@@ -35,7 +34,7 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:title, :description, :public, :logo)
+    params.require(:board).permit(:title, :description, :public, :logo, :remove_logo)
   end
 
   def set_board

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-4 col-md-4">
+    <%= simple_form_for @board do |f| %>
+      <% if @board.errors.any? %>
+        <ul>
+          <% @board.errors.full_messages.each do |msg| %>
+            <li>
+              <%=msg%>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :public %>
+      <%= f.input :logo %>
+      <%= f.input :remove_logo, as: :boolean if @board.logo.present?  %>
+
+      <%= f.submit "Gonder", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
