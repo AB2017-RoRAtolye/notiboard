@@ -21,3 +21,4 @@
 .byebug_history
 .ruby-gemset
 .ruby-version
+/public/uploads
