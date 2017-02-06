@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_board, only: [:show, :edit, :update]
+  #before_action :authorize, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -14,9 +15,12 @@ class BoardsController < ApplicationController
   end
 
   def edit
+    authorize @board
+
   end
 
   def update
+    authorize @board
     if @board.update(board_params)
       redirect_to board_path(@board), notice: "Başarıyla güncellendi"
     else
@@ -34,6 +38,10 @@ class BoardsController < ApplicationController
       render :new
     end
   end
+
+  # def authorize
+  #   redirect_to(root_path, notice: "Bu islem icin yetkiniz yok") unless @board.owners.include?(current_user)
+  # end
 
   def board_params
     params.require(:board).permit(:title, :description, :public, :logo, :remove_logo)

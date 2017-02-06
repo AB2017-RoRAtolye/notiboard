@@ -38,3 +38,4 @@ gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'devise'
+gem "pundit"
