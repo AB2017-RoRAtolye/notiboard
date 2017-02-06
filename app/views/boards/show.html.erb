@@ -5,6 +5,8 @@
 
     <%= image_tag @board.logo.url(:thumb_fill), height: 50, width: 50 %>
 
+.... Post Listesi ...
+
 
     <% if policy(@board).update? %>
       <%= link_to "Duzenle", edit_board_path(@board.id) %>
@@ -15,6 +17,11 @@
 
     <% unless @board.users.include?(current_user) %>
       <%= link_to "Abone Ol", subscribe_board_path(@board), method: :post, class: "btn btn-success" %>
+    <% end %>
+    <br />
+
+    <% if @board.owners.include?(current_user) %>
+      <%= link_to "Yeni Duyuru Gonder",  "#", class: "btn btn-success" %>
     <% end %>
     <br />
 

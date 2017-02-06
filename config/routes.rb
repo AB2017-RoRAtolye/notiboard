@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
   root to: "boards#index"
 
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
     member do
       post :subscribe
     end
+    resources :posts
   end
-
 
 end
