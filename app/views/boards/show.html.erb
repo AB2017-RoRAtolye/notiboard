@@ -12,9 +12,22 @@
   </div>
 
   <div class="col-md-4">
-    Owners: <br/>
+
+    <% unless @board.users.include?(current_user) %>
+      <%= link_to "Abone Ol", subscribe_board_path(@board), method: :post, class: "btn btn-success" %>
+    <% end %>
+    <br />
+
+    <h3>Owners: </h3>
 
     <% @board.owners.each do |user| %>
+      <%= user.email %> <br />
+    <% end %>
+ <br /> <br /> <br />
+
+    <h3>Subscribers: </h3>
+
+    <% @board.subscribers.each do |user| %>
       <%= user.email %> <br />
     <% end %>
   </div>

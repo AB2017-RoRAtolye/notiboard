@@ -1,7 +1,12 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_board, only: [:show, :edit, :update]
+  before_action :set_board, only: [:show, :edit, :update, :subscribe]
   #before_action :authorize, only: [:edit, :update, :destroy]
+
+  def subscribe
+    @board.subscribers << current_user
+    redirect_to board_path(@board), notice: "Boarda abone oldunuz."
+  end
 
   def show
   end
