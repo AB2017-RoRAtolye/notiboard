@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_board, only: [:show, :edit, :update]
 
   def show
@@ -27,6 +28,7 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
+      @board.owners << current_user
       redirect_to board_path(@board), notice: "Başarıyla oluşturuldu"
     else
       render :new
