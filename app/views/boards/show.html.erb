@@ -3,7 +3,7 @@
 
     <h1><%= @board.title %></h1>
 
-    <%= image_tag @board.logo.url(:thumb_fill), height: 100, width: 100 %>
+    <%= image_tag @board.logo.url(:thumb_fill), height: 50, width: 50 %>
 
 
     <% if policy(@board).update? %>
