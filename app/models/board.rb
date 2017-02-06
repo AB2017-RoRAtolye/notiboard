@@ -11,6 +11,9 @@ class Board < ApplicationRecord
    has_many :subscribers, -> { where(user_relations: {role: 'user'}) }, through: :user_relations,
     class_name: "User", source: :user
 
+  # has_many :posts
+  # has_many :approved_posts, -> { where(approved: true) }, class_name: "Post"
+
   # def subscribers
   #   users.where(user_relations: {role: "user"})
   # end
