@@ -9,8 +9,9 @@ class Post < ApplicationRecord
 
   def send_notifications
     board.subscribers.each do |user|
-      NotificationMailer.new_post_notification(user, self).deliver_now
+      NotificationMailer.new_post_notification(user, self).deliver_later
     end
+    SlackNotifierJob.perform_later(self) 
   end
 
 

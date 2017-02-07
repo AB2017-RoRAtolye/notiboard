@@ -49,7 +49,7 @@ class BoardsController < ApplicationController
   # end
 
   def board_params
-    params.require(:board).permit(:title, :description, :public, :logo, :remove_logo)
+    params.require(:board).permit(:title, :description, :public, :slack_url, :logo, :remove_logo)
   end
 
   def set_board

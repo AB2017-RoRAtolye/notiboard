@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206135411) do
+ActiveRecord::Schema.define(version: 20170207102730) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170206135411) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "logo"
+    t.string   "slack_url"
     t.index ["slug"], name: "index_boards_on_slug"
   end
 

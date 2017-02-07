@@ -44,3 +44,5 @@ gem "mini_magick"
 gem 'devise'
 gem "pundit"
 gem "haml-rails", "~> 0.9"
+gem 'sidekiq'
+gem "slack-notifier"
