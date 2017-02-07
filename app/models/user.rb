@@ -12,4 +12,6 @@ class User < ApplicationRecord
 
    has_many :subscribed_boards, -> { where(user_relations: {role: 'user'}) }, through: :user_relations,
     class_name: "Board", source: :board
+  has_many :comments
+
 end

@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :board
   belongs_to :user
+  has_many :comments
 
   mount_uploader :image, BoardLogoUploader
 
@@ -11,7 +12,7 @@ class Post < ApplicationRecord
     board.subscribers.each do |user|
       NotificationMailer.new_post_notification(user, self).deliver_later
     end
-    SlackNotifierJob.perform_later(self) 
+    SlackNotifierJob.perform_later(self)
   end
 
 
