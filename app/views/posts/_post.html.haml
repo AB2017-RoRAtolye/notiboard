@@ -1,6 +1,11 @@
 .panel.panel-primary
   .panel-heading= post.title
-  .panel-body= post.content
+  .panel-body
+    = post.content
+
+    = render 'comments/comment_list', post: post
+    = render 'comments/form', post: post
+
   .panel-footer
     %strong= post.created_at.to_formatted_s(:short)
     = link_to  "Duzenle", edit_board_post_path(@board.id, post)

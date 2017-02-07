@@ -1,0 +1,4 @@
+%h3 Yorumlar
+%ul{id: "comment_list_#{post.id}"}
+  - post.comments.each do |comment|
+    = render comment

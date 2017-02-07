@@ -1,0 +1,7 @@
+<% if @comment.valid? %>
+  var comment_html = "<%= j(render(@comment)) %>"
+  $("#comment_list_<%= @comment.post_id %>").append(comment_html)
+  $(".comment_content_input").val("")
+<% else %>
+  alert("Yorum Kaydedilemedi. <%= @comment.errors.full_messages.join(", ") %>")
+<% end %>

@@ -1,7 +1,6 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-
   mount Sidekiq::Web => '/sidekiq'
   devise_for :users
   root to: "boards#index"
@@ -12,5 +11,5 @@ Rails.application.routes.draw do
     end
     resources :posts
   end
-
+  resources :comments, only: [:create, :destroy]
 end

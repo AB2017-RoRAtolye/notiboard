@@ -1,0 +1,8 @@
+= simple_form_for @comment, remote: true do |f|
+  .row
+    .col-md-8
+      = f.input :content, as: :string, label: false, input_html: {class: "comment_content_input"}
+    .col-md-4
+      = f.submit "Gonder", class: "btn btn-primary"
+
+  = f.input :post_id, as: :hidden, input_html: {value: post.id}

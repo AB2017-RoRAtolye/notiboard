@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def index
