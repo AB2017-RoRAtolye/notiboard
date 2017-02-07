@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <%= post.title %>
+  </div>
+  <div class="panel-body">
+    <%= post.content %>
+  </div>
+  <div class="panel-footer">
+    <strong>
+      <%= post.created_at.to_formatted_s(:short) %>
+    </strong>
+
+    <%= link_to  "Duzenle", edit_board_post_path(@board.id, post) %>
+  </div>
+</div>
