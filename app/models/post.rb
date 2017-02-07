@@ -4,7 +4,8 @@ class Post < ApplicationRecord
 
   mount_uploader :image, BoardLogoUploader
 
-  after_save :send_notifications
+  after_create :send_notifications
+  after_update :send_update_notifications
 
   def send_notifications
     board.subscribers.each do |user|
@@ -12,4 +13,8 @@ class Post < ApplicationRecord
     end
   end
 
+
+  def send_update_notifications
+    #Send update update notifications
+  end
 end
