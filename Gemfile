@@ -42,3 +42,4 @@ gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'devise'
 gem "pundit"
+gem "haml-rails", "~> 0.9"

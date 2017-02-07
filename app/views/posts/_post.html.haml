@@ -1,0 +1,6 @@
+.panel.panel-primary
+  .panel-heading= post.title
+  .panel-body= post.content
+  .panel-footer
+    %strong= post.created_at.to_formatted_s(:short)
+    = link_to  "Duzenle", edit_board_post_path(@board.id, post)
