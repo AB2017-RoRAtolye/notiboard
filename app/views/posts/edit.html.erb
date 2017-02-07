@@ -1,21 +1,5 @@
-<div class="row">
-  <div class="col-sm-4 col-md-4">
-    <%= simple_form_for [@board, @post] do |f| %>
-      <% if @post.errors.any? %>
-        <ul>
-          <% @post.errors.full_messages.each do |msg| %>
-            <li>
-              <%=msg%>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
+<h1>
+  Duyuruyu Duzenle
+</h1>
 
-      <%= f.input :title %>
-      <%= f.input :content %>
-      <%= f.input :image %>
-      <%= f.input :remove_image, as: :boolean if @post.image.present?  %>
-      <%= f.submit "Gonder", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= render "form" %>

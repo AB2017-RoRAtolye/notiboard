@@ -20,10 +20,18 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @board = Board.find(params[:board_id])
     @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to board_path(@post.board_id), notice: "Duyuru guncellendi"
+    else
+      render :edit
+    end
   end
 
   def destroy
