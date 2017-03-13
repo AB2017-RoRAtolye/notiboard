@@ -13,6 +13,7 @@ class Post < ApplicationRecord
       NotificationMailer.new_post_notification(user, self).deliver_later
     end
     SlackNotifierJob.perform_later(self)
+    ActionCable.server.broadcast("notification_for_#{self.board_id}", self.to_json)
   end
 
 
